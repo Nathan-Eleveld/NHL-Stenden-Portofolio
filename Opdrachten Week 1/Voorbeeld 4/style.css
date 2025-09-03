@@ -1,0 +1,13 @@
+h1{
+    color: red;
+}
+
+h2{
+    color: red;
+}
+
+.img-border-color{
+    img{
+        border: 2px solid blue;
+    }
+}
