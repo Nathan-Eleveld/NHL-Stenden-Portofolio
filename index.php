@@ -6,7 +6,19 @@
     <title>Dikke index pagina</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<header>
+    <H1>Dit is een dikke index pagina.</H1>
+</header>
 <body>
-    <h1>Dit is een dikke index pagina.</h1>
+    <?php
+        $map = "Opdrachten"; // pad naar de folder
+        $bestanden = scandir($map);
+
+        foreach ($bestanden as $bestand) {
+            if ($bestand !== "." && $bestand !== "..") {
+                echo $bestand . "<br>";
+            }
+        }
+    ?>
 </body>
 </html>
