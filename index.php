@@ -19,5 +19,22 @@
     <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_6\opdracht.php">Opdracht 6</a><br>
     <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_7\opdracht.php">Opdracht 7</a><br>
     <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_8\opdracht.php">Opdracht 8</a><br>
+    
+    <?php
+
+        $files = ["1", "2", "3"];
+
+        if($files > 0){
+            foreach($files as $file){
+                // check if there is a cleaner way.
+                ?>
+
+                    
+
+                <?php
+            }
+        }
+
+    ?>
 </body>
 </html>
