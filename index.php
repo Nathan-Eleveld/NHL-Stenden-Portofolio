@@ -10,31 +10,55 @@
     <H1>Dit is een dikke index pagina.</H1>
 </header>
 <body>
-    <h2>Wekelijkse opdrachten</h2>
-    <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_1\amsterdam_info.html">Opdracht 1</a><br>
-    <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_2\amsterdam_info.html">Opdracht 2</a><br>
-    <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_3\amsterdam_info.html">Opdracht 3</a><br>
-    <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_4\overview_bridges.html">Opdracht 4</a><br>
-    <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_5\text.php">Opdracht 5</a><br>
-    <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_6\opdracht.php">Opdracht 6</a><br>
-    <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_7\opdracht.php">Opdracht 7</a><br>
-    <a href="Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_8\opdracht.php">Opdracht 8</a><br>
     
-    <?php
+    <main>
 
-        $files = ["1", "2", "3"];
+        <h1>Opdrachten</h1>
+        <div class="card-list">
 
-        if($files > 0){
-            foreach($files as $file){
-                // check if there is a cleaner way.
-                ?>
+            <?php
 
-                    
+                $temp = [
+                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_1\amsterdam_info.html",
+                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_2\amsterdam_info.html",
+                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_3\amsterdam_info.html",
+                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_4\overview_bridges.html",
+                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_5\text.php",
+                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_6\opdracht.php",
+                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_7\opdracht.php",
+                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_8\opdracht.php"
+                ];
+                $baseFolder = "Opdrachten";
+                $files;
 
-                <?php
-            }
-        }
+                function getAllFiles($baseFolder, $temp) {
+                    $files = $temp;
+                    return $files;
+                }
+                
+                $files = getAllFiles($baseFolder, $temp);
 
-    ?>
+                if($files > 0){
+                    foreach($files as $file){
+                        
+                        echo <<<HTML
+                            <a href=$file>
+                                <div class="card">
+                                    <img src="img\placeholder.png" alt="Placeholder img">
+                                    <div class="card-content">
+                                        <h3>Kop teskt</h3>
+                                        <p>mooie beschrijving</p>
+                                    </div>
+                                </div>
+                            </a>
+                        HTML;
+                    }
+                } else {
+                  echo "files is leeg ja.";  
+                }
+
+            ?>
+        </div>
+    </main>
 </body>
 </html>
