@@ -17,36 +17,45 @@
         <div class="card-list">
 
             <?php
+                $baseFolder = "/opdrachten/leerjaar_1/periode_1/week-opdrachten";
 
-                $temp = [
-                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_1\index.html",
-                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_2\index.html",
-                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_3\index.html",
-                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_4\index.html",
-                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_5\index.html",
-                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_6\index.html",
-                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_7\index.html",
-                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_8\index.html"
-                ];
-                $baseFolder = "week-opdrachten";
-                $files;
+                function getAllFiles($baseFolder) {
+                    $map = dir(__DIR__ . $baseFolder);
+                    $files = [];
 
-                function getAllFiles($baseFolder, $temp) {
-                    $files = $temp;
+                    while (($bestand = $map->read()) !== false) {
+                        if ($bestand === '.' || $bestand === '..' || $bestand === 'img') continue;
+
+                        $pad = $baseFolder . "/" . $bestand;
+
+                        if (is_dir(__DIR__ . $pad)) {
+                            $submap = dir(__DIR__ . $pad);
+                            while (($subbestand = $submap->read()) !== false) {
+                                if ($subbestand === '.' || $subbestand === '..' || $subbestand === 'img') continue;
+                                $files[] = $pad . "/" . $subbestand;
+                            }
+                            $submap->close();
+                        } else {
+                            $files[] = $pad;
+                        }
+                    }
+
+                    $map->close();
                     return $files;
                 }
                 
-                $files = getAllFiles($baseFolder, $temp);
+                $files = getAllFiles($baseFolder);
 
-                if($files > 0){
+                if(count($files) > 0){
                     foreach($files as $file){
+                        $filename = basename($file);
                         
                         echo <<<HTML
                             <a href=$file>
                                 <div class="card">
                                     <img src="img\placeholder.png" alt="Placeholder img">
                                     <div class="card-content">
-                                        <h3>Kop teskt</h3>
+                                        <h3>$filename</h3>
                                         <p>mooie beschrijving</p>
                                     </div>
                                 </div>
