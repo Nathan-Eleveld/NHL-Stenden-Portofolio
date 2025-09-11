@@ -19,16 +19,16 @@
             <?php
 
                 $temp = [
-                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_1\amsterdam_info.html",
-                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_2\amsterdam_info.html",
-                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_3\amsterdam_info.html",
-                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_4\overview_bridges.html",
-                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_5\text.php",
-                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_6\opdracht.php",
-                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_7\opdracht.php",
-                    "Opdrachten\Leerjaar_1\Periode_1\Programmeren\Opdrachten_Week_1\Opdracht_8\opdracht.php"
+                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_1\index.html",
+                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_2\index.html",
+                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_3\index.html",
+                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_4\index.html",
+                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_5\index.html",
+                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_6\index.html",
+                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_7\index.html",
+                    "opdrachten\leerjaar_1\periode_1\week-opdrachten\week_1\Opdracht_8\index.html"
                 ];
-                $baseFolder = "Opdrachten";
+                $baseFolder = "week-opdrachten";
                 $files;
 
                 function getAllFiles($baseFolder, $temp) {
