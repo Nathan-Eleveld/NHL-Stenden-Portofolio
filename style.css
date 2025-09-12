@@ -65,3 +65,7 @@ main h1{
     color: #666;
     line-height: 1.4;
 }
+
+a {
+  text-decoration: none;
+}
