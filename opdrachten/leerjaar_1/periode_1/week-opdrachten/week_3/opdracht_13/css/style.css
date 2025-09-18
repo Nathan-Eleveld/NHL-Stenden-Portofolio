@@ -1,5 +1,6 @@
 /* 
-Wit – hsl (0%, 100%)Steen 100 – hsl (30, 54%, 90%)
+Wit – hsl (0%, 100%)
+Steen 100 – hsl (30, 54%, 90%)
 Steen 150 – hsl(30, 18%, 87%)
 Steen 600 – hsl(30, 10%, 34%)
 Steen 900 – hsl(24, 5%, 18%)
@@ -20,5 +21,79 @@ src: url("../font/YoungSerif-Regular.ttf");
 
 body{
     margin: 0;
-    font-family: "outfit"
+    font-family: "outfit";
+    background-color: hsl(330, 100%, 98%);
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2rem;
+}
+
+.content{
+    grid-column: 2/4;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.content > img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+h1, h2{
+    font-family: youngserif;
+}
+
+h2{
+    color: hsl(14, 45%, 36%);
+}
+
+.preptime{
+    background-color: hsl(330, 100%, 98%);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+h3{
+    margin: 0;
+    color: hsl(332, 51%, 32%);
+}
+
+table{
+    min-width: 100%;
+}
+
+tr:not(.no-line) {
+  box-shadow: inset 0 -1px 0 0 black;
+}
+
+td{
+    padding: 1rem;
+}
+
+ul{
+    padding-inline: 0;
+}
+
+li{
+    margin: 1rem;
+}
+
+.preptime li::marker {
+    color: hsl(332, 51%, 32%);
+}
+
+li::marker{
+    color: hsl(14, 45%, 36%);
+}
+
+.color-brown{
+    color: hsl(14, 45%, 36%);
+}
+
+.underline{
+    box-shadow: inset 0 -1px 0 0 black;
 }
