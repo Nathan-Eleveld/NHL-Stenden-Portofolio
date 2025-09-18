@@ -64,6 +64,82 @@
                 </tr>
             </table>
         </div>
+
+
+        <div class="content">
+
+            <?php
+                // vars for task 1
+                $input = 100;
+                $reference = 100;
+
+                // vars for task 2
+                $calories = rand();
+                $carbs = rand();
+                $protein = rand();
+                $fat = rand();
+                $isDietApproved = true;
+
+                // vars for task 3
+                $age = rand(0, 100);
+                $gender = "male";
+                $lastVisit = "18/09/2025";
+                $currentDate = "18/09/2025";
+                $check1 = false;
+                $check2 = false;
+                $check3 = false;
+
+                // task 1
+                function checkInput($input, $reference){
+                    if($input > $reference){
+                        echo "je input is groter dan $reference <br>";
+                    }elseif($input == $reference){
+                        echo "je input is gelijk aan $reference <br>";
+                    }elseif($input < $reference){
+                        echo "je input is kleiner dan $reference <br>";
+                    }
+                }
+
+                checkInput($input, $reference);
+
+                // task 2
+                function getList($calories, $carbs, $protein, $fat, $isDietApproved){
+                    if($isDietApproved == true){
+                        echo '<div class="meal-allowed">donders je mag dit eten dit zijn de voedings waarden.<br> calories: ' . $calories . '<br> carbs: ' . $carbs . ' <br> protein: ' . $protein . '<br> fat: ' . $fat . ' </div>';
+                    }else{
+                        echo '<div class="meal-not-ok">weet je dat wel zeker bolle? Zouden we dit toch maar niet doen?</div>';
+                    }
+                }
+                echo "<br>";
+                getList($calories, $carbs, $protein, $fat, $isDietApproved);
+
+                // task 3
+                function checkRegreistration($age, $gender, $lastVisit, $currentDate, $check1, $check2, $check3){
+                    if($age < 18){
+                        echo "Gaan we nie doen kerl! Jij bent te jong.";
+                        $check1 = true;
+                    };
+                    
+                    if($gender == "female"){
+                        echo "Er komt me toch een event aan. Ladies night in de videotheek. Kom zeker langs.";
+                        $check2 = true;
+                    }
+                    
+                    if($lastVisit != $currentDate){
+                        echo "Donders dikke korting voor jou.";
+                        $check3 = true;
+                    };
+
+                    if($check1 == true || $check2 == true || $check3 == true){
+                        echo "<br>Dit is een hele grote rode WAARSCHUWING!!";
+                    }
+
+                }
+                echo "<br>";
+                checkRegreistration($age, $gender, $lastVisit, $currentDate, $check1, $check2, $check3);
+            ?>
+
+        </div>
     </main>
 </body>
 </html>
