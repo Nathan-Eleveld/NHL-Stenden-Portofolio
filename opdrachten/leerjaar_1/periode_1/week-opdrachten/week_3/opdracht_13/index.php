@@ -82,12 +82,9 @@
 
                 // vars for task 3
                 $age = rand(0, 100);
-                $gender = "male";
+                $gender = (rand(0,1) === 0) ? "male" : "female";
                 $lastVisit = "18/09/2025";
                 $currentDate = "18/09/2025";
-                $check1 = false;
-                $check2 = false;
-                $check3 = false;
 
                 // task 1
                 function checkInput($input, $reference){
@@ -113,30 +110,28 @@
                 echo "<br>";
                 getList($calories, $carbs, $protein, $fat, $isDietApproved);
 
-                // task 3
-                function checkRegreistration($age, $gender, $lastVisit, $currentDate, $check1, $check2, $check3){
+                // task 3 
+                function checkRegistration($age, $gender, $lastVisit, $currentDate){
+                    if($age < 18 && $gender == "female" && $lastVisit != $currentDate){
+                        echo "<br>Dit is een hele grote rode WAARSCHUWING!!";
+                        return;
+                    }
+
                     if($age < 18){
-                        echo "Gaan we nie doen kerl! Jij bent te jong.";
-                        $check1 = true;
+                        echo "Gaan we nie doen kerl! Jij bent te jong. <br>";
                     };
                     
                     if($gender == "female"){
-                        echo "Er komt me toch een event aan. Ladies night in de videotheek. Kom zeker langs.";
-                        $check2 = true;
+                        echo "Er komt me toch een event aan. Ladies night in de videotheek. Kom zeker langs. <br>";
                     }
                     
                     if($lastVisit != $currentDate){
-                        echo "Donders dikke korting voor jou.";
-                        $check3 = true;
+                        echo "Donders dikke korting voor jou. <br>";
                     };
-
-                    if($check1 == true || $check2 == true || $check3 == true){
-                        echo "<br>Dit is een hele grote rode WAARSCHUWING!!";
-                    }
 
                 }
                 echo "<br>";
-                checkRegreistration($age, $gender, $lastVisit, $currentDate, $check1, $check2, $check3);
+                checkRegistration($age, $gender, $lastVisit, $currentDate);
             ?>
 
         </div>
