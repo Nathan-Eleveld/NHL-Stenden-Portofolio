@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opdracht 14</title>
-    <link rel="stylesheet" href="../opdracht_14/css/style.css">
+    <link rel="stylesheet" href="../opdracht_14/style.css">
 </head>
 <body>
     <?php
@@ -17,7 +17,7 @@
         $carbs = rand();
         $protein = rand();
         $fat = rand();
-        $isDietApproved = true;
+        $isDietApproved = (bool) rand(0, 1);
 
         // vars for task 3
         $age = rand(0, 100);
@@ -40,11 +40,21 @@
 
         // task 2
         function getList($calories, $carbs, $protein, $fat, $isDietApproved){
+            echo <<<HTML
+                <ol>
+                    <li>calories: $calories</li>
+                    <li>carbs: $carbs</li>
+                    <li>protein: $protein</li>
+                    <li>fat: $fat</li>
+                </ol>
+            HTML;
+
             if($isDietApproved == true){
-                echo '<div class="meal-allowed">donders je mag dit eten dit zijn de voedings waarden.<br> calories: ' . $calories . '<br> carbs: ' . $carbs . ' <br> protein: ' . $protein . '<br> fat: ' . $fat . ' </div>';
+                echo '<div class="meal-allowed">eetsmakkelijk kerel</div>';
             }else{
-                echo '<div class="meal-not-ok">weet je dat wel zeker bolle? Zouden we dit toch maar niet doen?</div>';
+                echo '<div class="meal-not-ok">ik zou het heroverwegen als ik jou was.</div>';
             }
+
         }
         echo "<br>";
         getList($calories, $carbs, $protein, $fat, $isDietApproved);
@@ -52,20 +62,20 @@
         // task 3 
         function checkRegistration($age, $gender, $lastVisit, $currentDate){
             if($age < 18 && $gender == "female" && $lastVisit != $currentDate){
-                echo "<br>Dit is een hele grote rode WAARSCHUWING!!";
+                echo '<div class="warning">Dit is een hele grote rode WAARSCHUWING!!</div>';
                 return;
             }
 
             if($age < 18){
-                echo "Gaan we nie doen kerl! Jij bent te jong. <br>";
+                echo "Gaan we nie doen kerl! Jij bent te jong.<br>";
             };
             
             if($gender == "female"){
-                echo "Er komt me toch een event aan. Ladies night in de videotheek. Kom zeker langs. <br>";
+                echo "Er komt me toch een event aan. Ladies night in de videotheek. Kom zeker langs.<br>";
             }
             
             if($lastVisit != $currentDate){
-                echo "Donders dikke korting voor jou. <br>";
+                echo "Donders dikke korting voor jou.<br>";
             };
 
         }
