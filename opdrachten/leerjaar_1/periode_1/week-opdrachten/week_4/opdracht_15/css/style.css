@@ -1,0 +1,34 @@
+/* 
+Purple 100 – hsl(254, 88%, 90%)
+Purple 500 – hsl(256, 67%, 59%)
+Yellow 100 – hsl(31, 66%, 93%)
+Yellow 500 – hsl(39, 100%, 71%)
+White – hsl(0, 0%, 100%)
+Black – hsl(0, 0%, 7%) 
+*/
+
+body{
+    margin: 0;
+    font-size: 18px;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+}
+
+main{
+    background-color: hsl(0, 0%, 100%);
+}
+
+img{
+    width: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.social-media{
+    grid-column: 2/4;
+}
