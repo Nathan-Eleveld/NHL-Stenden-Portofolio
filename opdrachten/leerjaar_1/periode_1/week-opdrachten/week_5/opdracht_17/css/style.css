@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    font-size: 18px;
+    background-color: gray;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+main{
+    background-color: white;
+    grid-column: 2;
+    padding: 2rem;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.work-phone .city-and-state{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.email .company-address{
+    display: grid;
+    grid-template-columns: 1fr;
+}
