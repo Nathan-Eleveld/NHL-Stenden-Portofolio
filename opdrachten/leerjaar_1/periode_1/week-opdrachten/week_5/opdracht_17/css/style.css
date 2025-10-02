@@ -17,12 +17,21 @@ main{
     grid-template-columns: 1fr 2fr;
 }
 
-.work-phone .city-and-state{
+.name{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.email .company-address{
+.work-phone{
+    display: grid;
+    grid-template-columns: 4fr 0.1fr 4fr;
+}
+
+.under-phone-input{
+    grid-column: 3;
+}
+
+.company, .company-address{
     display: grid;
     grid-template-columns: 1fr;
 }

@@ -22,21 +22,21 @@
             <form action="index.php" method="POST">
                 <div class="name">
                     <input type="text" name="" id="">
-                    <small>First name</small>
                     <input type="text" name="" id="">
                     <label for="">First Name</label>
                     <label for="">Last Name</label>
                 </div>
                 <div class="email">
                     <input type="email" name="" id="">
+                    <br>
                     <label for="">example@example.com</label>
                 </div>
                 <div class="work-phone">
                     <input type="number" name="" id="">
-                    <label for="">Area Code</label>
-                    <p>-</p>
+                    -
                     <input type="number" name="" id="">
-                    <label for="">Phone Number</label>
+                    <label for="">Area Code</label>
+                    <label class="under-phone-input" for="">Phone Number</label>
                 </div>
                 <div class="company">
                     <input type="text" name="" id="">
@@ -61,12 +61,6 @@
                 <input type="submit" name="" id="">
             </form>
         </div>
-
-        <form action="">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName">
-            <small style="color: gray;">Vul hier je voornaam in.</small>
-        </form>
 
     </main>
 </body>
