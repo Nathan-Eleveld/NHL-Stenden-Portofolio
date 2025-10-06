@@ -1,3 +1,37 @@
+<?php
+    // var_dump($_SERVER);
+
+    if($_SERVER['REQUEST_METHOD'] == "POST") //Controle of de submit knop is ingedrukt.
+    {
+        // var_dump($_POST);
+        $fname = filter_input(INPUT_POST, "fname");
+        $lname = filter_input(INPUT_POST, "lname");
+        $email = filter_input(INPUT_POST, "email");
+        $area_code = filter_input(INPUT_POST, "area-code");
+        $work_phone = filter_input(INPUT_POST, "work-phone");
+        $company = filter_input(INPUT_POST, "company");
+        $company_address = filter_input(INPUT_POST, "company-address");
+        $company_address_2 = filter_input(INPUT_POST, "company-address-2");
+        $city = filter_input(INPUT_POST, "city");
+        $state = filter_input(INPUT_POST, "state");
+        $postal = filter_input(INPUT_POST, "postal");
+        $company_website = filter_input(INPUT_POST, "company-website");
+        $radio = filter_input(INPUT_POST, "radio");
+
+        if (
+            empty($fname) || empty($lname) || empty($email) || empty($area_code) ||
+            empty($work_phone) || empty($company) || empty($company_address) ||
+            empty($company_address_2) || empty($city) || empty($state) ||
+            empty($postal) || empty($company_website) || empty($radio)
+        ) {
+        
+            // GPT code
+            $error = "Oeps! Alle velden moeten ingevuld zijn.";
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +41,22 @@
     <link rel="stylesheet" href="../opdracht_17/css/style.css">
 </head>
 <body>
+
+    <?php
+        // GPT code
+        if (!empty($error)) {
+            echo '<div class="error-message">' . htmlspecialchars($error) . '</div>';
+        }
+    ?>
+
     <main>
         <h1>Webinar Subscription</h1>
         <hr>
         <form action="index.php" method="POST">
             <h3>Name</h3>
             <div class="name">
-                <input type="text" name="fName" id="fName" placeholder="fName">
-                <input type="text" name="lName" id="lName" placeholder="lName">
+                <input type="text" name="fname" id="fname" placeholder="fname">
+                <input type="text" name="lname" id="lname" placeholder="lname">
             </div>
             <h3>E-mail</h3>
             <div class="email">
@@ -42,6 +84,16 @@
             <div class="company-website">
                 <input type="text" name="company-website" id="company-website" placeholder="comany website">
             </div>
+
+            <h3>Wanna quit?</h3>
+            <div class="wanna-quit">
+                <label for="radio_true">Jep</label>
+                <input type="radio" name="radio" id="radio_true" value="true">
+                <label for="radio_false">Nope</label>
+                <input type="radio" name="radio" id="radio_false" value="false" checked>
+            </div>
+
+            <input type="submit">
         </form>
 
     </main>
