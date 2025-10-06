@@ -10,57 +10,39 @@
     <main>
         <h1>Webinar Subscription</h1>
         <hr>
-        <div class="grid">
-            <div class="catogorie">
-                <p>Name</p>
-                <p>E-mail</p>
-                <p>Work Phone</p>
-                <p>Company</p>
-                <p>Company Address</p>
-                <p>Company Website</p>
+        <form action="index.php" method="POST">
+            <h3>Name</h3>
+            <div class="name">
+                <input type="text" name="fName" id="fName" placeholder="fName">
+                <input type="text" name="lName" id="lName" placeholder="lName">
             </div>
-            <form action="index.php" method="POST">
-                <div class="name">
-                    <input type="text" name="" id="">
-                    <input type="text" name="" id="">
-                    <label for="">First Name</label>
-                    <label for="">Last Name</label>
-                </div>
-                <div class="email">
-                    <input type="email" name="" id="">
-                    <br>
-                    <label for="">example@example.com</label>
-                </div>
-                <div class="work-phone">
-                    <input type="number" name="" id="">
-                    -
-                    <input type="number" name="" id="">
-                    <label for="">Area Code</label>
-                    <label class="under-phone-input" for="">Phone Number</label>
-                </div>
-                <div class="company">
-                    <input type="text" name="" id="">
-                </div>
-                <div class="company-address">
-                    <input type="text" name="" id="">
-                    <label for="">Street Address</label>
-                    <input type="text" name="" id="">
-                    <label for="">Street Address Line 2</label>
-                    <div class="city-and-state">
-                        <input type="text" name="" id="">
-                        <label for="">City</label>
-                        <input type="text" name="" id="">
-                        <label for="">State / Province</label>
-                    </div>
-                    <input type="text" name="" id="">
-                    <label for="">Postal / Zip Code</label>
-                </div>
-                <div class="company-website">
-                    <input type="text" name="" id="">
-                </div>
-                <input type="submit" name="" id="">
-            </form>
-        </div>
+            <h3>E-mail</h3>
+            <div class="email">
+                <input type="email" name="email" id="email" placeholder="email">
+            </div>
+            <h3>Work Phone</h3>
+            <div class="work-phone">
+                <input type="number" name="area-code" id="area-code" placeholder="area code">
+                -
+                <input type="number" name="work-phone" id="work-phone" placeholder="phone nummer">
+            </div>
+            <h3>Company</h3>
+            <div class="company">
+                <input type="text" name="company" id="company" placeholder="company name">
+            </div>
+            <h3>Company Address</h3>
+            <div class="company-address">
+                <input type="text" name="company-address" id="company-address" placeholder="company address 1">
+                <input type="text" name="company-address-2" id="company-address-2" placeholder="company address 2">
+                <input type="text" name="city" id="city" placeholder="city">
+                <input type="text" name="state" id="state" placeholder="state">
+                <input type="text" name="postal" id="postal" placeholder="postal">
+            </div>
+            <h3>Company Website</h3>
+            <div class="company-website">
+                <input type="text" name="company-website" id="company-website" placeholder="comany website">
+            </div>
+        </form>
 
     </main>
 </body>
