@@ -1,9 +1,7 @@
 <?php
-    // var_dump($_SERVER);
 
     if($_SERVER['REQUEST_METHOD'] == "POST") //Controle of de submit knop is ingedrukt.
     {
-        // var_dump($_POST);
         $fname = filter_input(INPUT_POST, "fname");
         $lname = filter_input(INPUT_POST, "lname");
         $email = filter_input(INPUT_POST, "email");
@@ -45,7 +43,7 @@
     <?php
         // GPT code
         if (!empty($error)) {
-            echo '<div class="error-message">' . htmlspecialchars($error) . '</div>';
+            echo '<div class="error-message">' . $error . '</div>';
         }
     ?>
 
