@@ -1,0 +1,118 @@
+/* 
+Purple 100 – hsl(254, 88%, 90%)
+Purple 500 – hsl(256, 67%, 59%)
+Yellow 100 – hsl(31, 66%, 93%)
+Yellow 500 – hsl(39, 100%, 71%)
+White – hsl(0, 0%, 100%)
+Black – hsl(0, 0%, 7%) 
+*/
+
+@font-face {
+    font-family: 'DMSans';
+    src : url('../font/DMSans-VariableFont_opsz,wght.ttf');
+}
+
+@font-face {
+    font-family: 'DMSans-Italic';
+    src : url('../font/DMSans-Italic-VariableFont_opsz,wght.ttf');
+}
+
+body{
+    margin: 0;
+    font-size: 18px;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    background-color: lightgray;
+}
+
+p{
+    margin: 1rem;
+}
+
+main{
+    /* background-color: hsl(0, 0%, 100%); */
+    /* background-color: white; */
+    width: 80%;
+    /* min-height: 80vh; */
+    margin: 4% auto;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.social-media{
+    grid-column: 2/4;
+}
+
+.purple{
+    color: hsl(256, 67%, 59%);
+}
+
+.yellow{
+    color: hsl(39, 100%, 71%);
+}
+
+.create-post{
+    background-color: hsl(31, 66%, 93%);
+    padding: 1rem;
+    font-family: DMSans;
+}
+
+#create-post-img{
+    width: 100%;
+}
+
+#fivestar-img{
+    width: 30%;
+}
+
+#schedule-img{
+    width: 160%;
+}
+
+.bcg-purple{
+    background-color: hsl(256, 67%, 59%);
+    grid-column: span 2;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-text{
+    font-size: 4rem;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+}
+
+.row-span{
+    grid-row: span 2;
+    background-color: hsl(254, 88%, 90%);
+}
+
+.schedule{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    overflow-x: hidden;
+}
+
+.manage-accounts{
+    background-color: hsl(0, 0%, 100%);
+    overflow-x: hidden;
+    padding: 1rem;
+    grid-column: 2;
+}
+
+#manage-accounts-img{
+    width: 150%;
+}

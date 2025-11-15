@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+}
+
+main{
+    background-color: black;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);
+    grid-template-rows: repeat(19, 1fr);
+    gap: 1rem;
+}
