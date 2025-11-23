@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opdracht 2</title>
+</head>
+<body>
+    <form action="result.php" method="post">
+        <label for="name">Naam:</label>
+        <input type="text" name="name" id="name" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br>
+        <input type="radio" name="type" id="student" value="student" checked>
+        <label for="student">Student:</label>
+        <input type="radio" name="type" id="teacher" value="teacher">
+        <label for="teacher">Docent:</label><br>
+        <label for="remark">Voeg hier uw opmerking toe:</label><br>
+        <textarea name="remark" id="remark"></textarea><br>
+        <label for="globalEmail">Wilt u een globale email naar iedere gebruiker sturen?</label>
+        <input type="checkbox" name="globalEmail" id="globalEmail" value="true"><br>
+        <button type="submit">Klik hier om uw commentaar te verzenden</button>
+    </form>
+</body>
+</html>
