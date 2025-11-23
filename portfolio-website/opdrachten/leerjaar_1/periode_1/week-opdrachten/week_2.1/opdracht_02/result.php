@@ -7,25 +7,37 @@
         $globalEmail = filter_input(INPUT_POST, "globalEmail");
     }
 
-    function dataValidation($name, $email, $type, $remark, $globalEmail){
-        if(){
+    $dataIsValid = true;
 
+    function dataValidation($name, $email, $type, $remark, $globalEmail, $dataIsValid){
+        
+        if(strlen($name) < 2){
+            $dataIsValid = false;
+            echo "Zou u een naam willen invullen? Word gewaardeerd.<br>";
         }
 
         if(empty($email)){
-            return "VUL EEN EMAIL IN!!!!";
+            $dataIsValid = false;
+            echo "VUL EEN EMAIL IN!!!!<br>";
         }elseif(!$email){
-            return "De email is ongeldig.";
+            $dataIsValid = false;
+            echo "De email is ongeldig.<br>";
         }
 
-        if(!$type || $type !== "student" || $type !== "teacher"){
-            return "Jaja, leuk die f12. Volgens mij is het zo gefixed toch?";
+        $allowedTypes = ["student", "teacher"];
+        if(!in_array($type, $allowedTypes, true)){
+            $dataIsValid = false;
+            echo "Jaja, leuk die f12. Volgens mij is het zo gefixed toch?<br>";
         }
 
-        if(){
-
+        if(str_word_count(trim($remark)) < 5){
+            $dataIsValid = false;
+            echo "Het commentaar moet meer dan 5 woorden bevatten.<br>";
         }
+        return $dataIsValid;
     }
+
+    $dataIsValid = dataValidation($name, $email, $type, $remark, $globalEmail, $dataIsValid);
 
     function globalEmailOption($globalEmail){
         if($globalEmail){
@@ -58,7 +70,9 @@
 </head>
 <body>
     <?php
-        displayText($name, $email, $type, $remark, $globalEmail);
+        if($dataIsValid == true){
+            displayText($name, $email, $type, $remark, $globalEmail);
+        }
     ?>
 
     <a href="index.html">Ga terug</a>
