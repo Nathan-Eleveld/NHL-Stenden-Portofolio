@@ -1,5 +1,3 @@
--- opdracht 1
-
 -- 1.1
 SELECT name
 FROM songs
