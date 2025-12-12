@@ -39,3 +39,39 @@ AND movies.year = 2019
 ORDER BY rating DESC, title;
 
 -- 2.4
+SELECT name 
+FROM people
+WHERE id IN(
+	SELECT person_id
+    FROM stars
+    WHERE movie_id = 145487
+);
+
+-- 2.5
+SELECT name
+FROM people
+WHERE id IN(
+    SELECT person_id
+    FROM stars
+    WHERE movie_id IN(
+        	SELECT id
+        	FROM movies
+        	WHERE year = 2004
+        )
+)
+ORDER BY birth ASC
+
+-- 2.6
+SELECT name
+FROM people
+WHERE id IN(
+    SELECT person_id
+    FROM directors
+    WHERE movie_id IN(
+    	SELECT movie_id
+        FROM ratings
+        WHERE rating >= 8.0
+    )
+);
+
+-- 2.7
