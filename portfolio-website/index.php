@@ -18,6 +18,7 @@
 
             <?php
                 $baseFolder = "/opdrachten/leerjaar_1/periode_1/week-opdrachten";
+                $baseFolder2 = "/opdrachten/leerjaar_1/periode_2/week-opdrachten";
 
                 function getAllFiles($baseFolder) {
                     $map = dir(__DIR__ . $baseFolder);
@@ -45,26 +46,32 @@
                 }
                 
                 $files = getAllFiles($baseFolder);
+                $files2 = getAllFiles($baseFolder2);
 
-                if(count($files) > 0){
-                    foreach($files as $file){
-                        $filename = basename($file);
-                        
-                        echo <<<HTML
-                            <a href="/portfolio-website/$file">
-                                <div class="card">
-                                    <img src="img\placeholder.png" alt="Placeholder img">
-                                    <div class="card-content">
-                                        <h3>$filename</h3>
-                                        <p>mooie beschrijving</p>
+                function createCard($files){
+                    if(count($files) > 0){
+                        foreach($files as $file){
+                            $filename = basename($file);
+                            
+                            echo <<<HTML
+                                <a href="/NHL-Stenden-Portofolio/portfolio-website$file">
+                                    <div class="card">
+                                        <img src="img\placeholder.png" alt="Placeholder img">
+                                        <div class="card-content">
+                                            <h3>$filename</h3>
+                                            <p>mooie beschrijving</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        HTML;
+                                </a>
+                            HTML;
+                        }
+                    } else {
+                    echo "files is leeg ja.";  
                     }
-                } else {
-                  echo "files is leeg ja.";  
                 }
+
+            createCard($files);
+            createCard($files2);
 
             ?>
         </div>
