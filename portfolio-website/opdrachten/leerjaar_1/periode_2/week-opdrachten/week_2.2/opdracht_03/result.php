@@ -1,14 +1,6 @@
-<!-- 
-Het bestand moet een afbeelding zijn van de .png, .jpeg, .jpg of .gif format.
-Het bestand mag niet groter zijn dan 3MB.
-De originele bestandsnaam mag niet langer zijn dan 50 characters en moet inieder geval
-1 hoofdletter bevatten. 
--->
-
-
 <?php
     $fileSize = (3*1024*1024); //3MB
-    // var_dump($_FILES);
+    var_dump($_FILES);
 
     if($_FILES["fileToUpload"]["error"] == 0){
 
