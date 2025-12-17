@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+}
+
+.card-overview{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 5%;
+}
+
+.card{
+    background-color: orangered;
+    color: yellow;
+    max-width: 75%;
+    padding: 2rem;
+    border-radius: 12px;
+}
