@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #0b0f1a;
+    background-image:
+        radial-gradient(1px 1px at 20% 30%, #ffffff88, transparent),
+        radial-gradient(1px 1px at 80% 20%, #ffffff88, transparent),
+        radial-gradient(1px 1px at 50% 80%, #ffffff88, transparent),
+        radial-gradient(2px 2px at 70% 60%, #ffffffaa, transparent),
+        radial-gradient(1px 1px at 30% 70%, #ffffff88, transparent),
+        radial-gradient(1px 1px at 90% 90%, #ffffff66, transparent);
+    background-size: 300px 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff6a00;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 35px 30px;
+    width: 320px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    border-top: 4px solid #ff8a00;
+    backdrop-filter: blur(4px);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #ff8a00;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #444;
+}
+
+input {
+    width: 100%;
+    padding: 11px;
+    border-radius: 7px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff8a00;
+    box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff8a00, #ff6a00);
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(255, 138, 0, 0.5);
+}
