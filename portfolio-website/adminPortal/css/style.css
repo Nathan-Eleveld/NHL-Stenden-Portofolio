@@ -22,19 +22,3 @@ aside{
 main{
     padding: 2rem;
 }
-
-.category h2{
-    background-color: #FF6600;
-    border: black 2px solid;
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
-
-.my-work{
-    font-size: larger;
-    font-weight: bolder;
-    border: 2px solid white;
-    padding-inline: 1rem;
-    border-radius: 12px;
-}

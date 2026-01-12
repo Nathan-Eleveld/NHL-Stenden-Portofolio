@@ -32,6 +32,7 @@
                 if(password_verify($pass, $results[0]["password"])){
                     session_start();
                     $_SESSION["username"] = $results[0]["username"];
+                    $_SESSION["role"] = $results[0]["role"];
                     header("location: ../index.php");
                 }
             }else{
