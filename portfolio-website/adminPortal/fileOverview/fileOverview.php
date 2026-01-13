@@ -4,6 +4,42 @@
     } elseif(file_exists(__DIR__ . '/auth.php')) {
         require_once __DIR__ . '/auth.php';
     }
+
+    function prepareStatement(){
+        require_once("./../dbconnection/dbconnection.php");
+        try{
+            $stmt = $dbConnection->prepare(
+            "
+                SELECT *
+                FROM `files`
+            "
+            );
+            return $stmt;
+        }catch(Exception $ex){
+            die($ex->getMessage());
+        }
+    }
+
+    function executeStatement(){
+        $stmt = prepareStatement();
+        $stmt->bindColumn("id", $id);
+        $stmt->bindColumn("title", $title);
+        $stmt->bindColumn("description", $description);
+        $stmt->bindColumn("path", $path);
+
+        $stmt->execute();
+
+        while($result = $stmt->fetch()){
+            echo '
+                <a href="/NHL-Stenden-Portofolio/portfolio-website/files/'.$path.'" class="card-link">
+                    <div class="card">
+                        <h3>' . $title . '</h3>
+                        <p>' . $description . '</p>
+                    </div>
+                </a>
+            ';
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +56,9 @@
         <a href="./fileUpload/form.php" class="add-button">Add a file</a>
     </div>
     <div class="content">
-        
+        <?php
+            executeStatement();
+        ?>
     </div>
-
 </body>
 </html>

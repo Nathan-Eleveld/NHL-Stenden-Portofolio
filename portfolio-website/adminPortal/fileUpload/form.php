@@ -1,3 +1,12 @@
+<?php
+    if(file_exists(__DIR__ . '/../auth.php')) {
+        require_once __DIR__ . '/../auth.php';
+    } elseif(file_exists(__DIR__ . '/auth.php')) {
+        require_once __DIR__ . '/auth.php';
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +17,11 @@
 </head>
 <body>
     <form action="./uploadFile.php" method="post" enctype="multipart/form-data">
+        <h2>Bestand uploaden</h2>
+        <label for="title">Bestandsnaam:</label>
+        <input type="text" name="title" id="title" placeholder="Bijv. Projectverslag">
+        <label for="description">Omschrijving:</label>
+        <textarea name="description" id="description" placeholder="Korte omschrijving van het bestand"></textarea>
         <label for="file">Bestandsnaam:</label>
         <input type="file" name="uploadedFile" id="file">
 

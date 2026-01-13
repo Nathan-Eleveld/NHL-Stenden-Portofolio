@@ -1,18 +1,56 @@
 <?php
-    if($_FILES["uploadedFile"]["error"] == 0){
-        if(!file_exists("upload/" . $_FILES["uploadedFile"]["name"])){
-            if(move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], "../../files/" . $_FILES["uploadedFile"]["name"])){
-                header("location: ../../adminPortal/index.php");
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $title = filter_input(INPUT_POST, 'title');
+        $description = filter_input(INPUT_POST, 'description');
+
+        executeStatement($title, $description);
+        header("location: /NHL-Stenden-Portofolio/portfolio-website/adminPortal/");
+    }
+
+    function uploadFileLocal(){
+        if($_FILES["uploadedFile"]["error"] == 0){
+            if(!file_exists("upload/" . $_FILES["uploadedFile"]["name"])){
+                if(move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], "../../files/" . $_FILES["uploadedFile"]["name"])){
+                    return $_FILES["uploadedFile"]["name"];
+                }else{
+                    // $errors[] = "Something went wrong while uploading.";
+                    return false;
+                }
             }else{
-                echo "Something went wrong while uploading.";
-                echo '<p><a href="../index.php">Er is iets mis gegaan klik hier om terug te gaan naar de index pagina.</a></p>';
+                // $errors[] = $_FILES["uploadedFile"]["name"] . " already exists. ";
+                return false;
             }
         }else{
-            echo $_FILES["uploadedFile"]["name"] . " already exists. ";   
-            echo '<p><a href="../index.php">Er is iets mis gegaan klik hier om terug te gaan naar de index pagina.</a></p>';    
+            // $errors[] = "Error: " . $_FILES["uploadedFile"]["error"] . "<br />";
+            return false;
         }
-    }else{
-        echo "Error: " . $_FILES["uploadedFile"]["error"] . "<br />";
-        echo '<p><a href="../index.php">Er is iets mis gegaan klik hier om terug te gaan naar de index pagina.</a></p>';
+    }
+
+    function prepareStatement(){
+        require_once("../../dbconnection/dbconnection.php");
+        try{
+            $stmt = $dbConnection->prepare(
+            "
+                INSERT INTO `files` (`id`, `title`, `description`, `path`)
+                VALUES (NULL, :title, :description, :path);
+            "
+            );
+            return $stmt;
+        }catch(Exception $ex){
+            die($ex->getMessage());
+        }
+    }
+
+    function executeStatement($title, $description){
+        $path = uploadFileLocal();
+        if($path != false){
+            $stmt = prepareStatement();
+            $stmt->execute([
+                ':title' => $title,
+                ':description' => $description,
+                ':path' => $path
+            ]);
+            return "De upload was een succes.";
+        }
     }
 ?>

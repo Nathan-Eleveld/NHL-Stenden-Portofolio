@@ -1,4 +1,5 @@
 <?php
+
     if(isset($_SESSION["username"])){
         if($_SESSION["role"] === "Admin"){
             return true;
@@ -6,6 +7,6 @@
             header("location: ../index.php");
         }
     }else{
-        header("location: ../login/login.php");
+        header("location: /NHL-Stenden-Portofolio/portfolio-website/login/login.php");
     }
 ?>

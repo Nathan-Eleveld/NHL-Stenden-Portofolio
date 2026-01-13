@@ -38,3 +38,54 @@ body{
     gap: 2rem;
     text-align: center;
 }
+
+/* Link wrapper voor de card */
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Card styling */
+.card {
+    background: #ffffff; /* gewoon wit */
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /* subtiele schaduw */
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.5rem;
+    border-top: 4px solid #ff8a00; /* subtiel oranje accent bovenaan */
+}
+
+/* Hover effect */
+a.card-link:hover .card {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 138, 0, 0.2); /* lichte oranje glow op hover */
+}
+
+/* Titel in de kaart */
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+    font-size: 1.2rem;
+    color: #ff6a00; /* oranje titel */
+}
+
+/* Accent-lijn onder de titel */
+.card h3::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #ff8a00, #ff6a00);
+    margin-top: 6px;
+    border-radius: 3px;
+}
+
+/* Beschrijvingstekst */
+.card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555; /* neutrale kleur voor tekst */
+    line-height: 1.4;
+}
