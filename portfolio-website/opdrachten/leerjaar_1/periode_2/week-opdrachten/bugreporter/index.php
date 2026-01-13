@@ -7,7 +7,7 @@
       $dbConnection = new PDO("mysql:host=mysql;dbname=bugreporter;charset=utf8", "root", "qwerty");
       return $dbConnection;
     }catch(Exception $ex){
-      return $ex;
+      die($ex->getMessage());
     }
   }
 
@@ -21,23 +21,16 @@
             FROM `bugs`
           "
         );
+
+        $stmt->bindColumn("id", $id);
+        $stmt->bindColumn("productname", $productName);
+        $stmt->bindColumn("version", $version);
+        $stmt->bindColumn("hardwaretype", $hardwareType);
+        $stmt->bindColumn("os", $OS);
+        $stmt->bindColumn("frequency", $frequency);
+        $stmt->bindColumn("solution", $solution);
+
         $stmt->execute();
-
-        try{
-          if(isset($stmt)){
-            $stmt->bindColumn("id", $id);
-            $stmt->bindColumn("productname", $productName);
-            $stmt->bindColumn("version", $version);
-            $stmt->bindColumn("hardwaretype", $hardwareType);
-            $stmt->bindColumn("os", $OS);
-            $stmt->bindColumn("frequency", $frequency);
-            $stmt->bindColumn("solution", $solution);
-
-            $stmt->execute();
-          }
-        }catch(Exception $ex){
-          return $ex;
-        }
 
         while($result = $stmt->fetch()){
           echo '
