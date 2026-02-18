@@ -1,0 +1,20 @@
+# Negeer portfolio files
+app/public/NHL-Stenden-Portofolio/portfolio-website/files/
+
+# OS / editor rommel
+.DS_Store
+Thumbs.db
+
+# IDE instellingen
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Docker volumes (optioneel, maar vaak gewenst)
+docker-data/
