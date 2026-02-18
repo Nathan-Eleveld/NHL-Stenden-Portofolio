@@ -20,8 +20,16 @@
         $title = filter_input(INPUT_POST, 'title');
         $description = filter_input(INPUT_POST, 'description');
 
-        executeStatement($title, $description, $fileSize, $acceptedFileTypes);
-        header("location: /NHL-Stenden-Portofolio/portfolio-website/adminPortal/");
+        $result = executeStatement($title, $description, $fileSize, $acceptedFileTypes);
+
+        if ($result === true) {
+            header("location: /NHL-Stenden-Portofolio/portfolio-website/adminPortal/");
+            exit;
+        } else {
+            echo "Upload mislukt.";
+            echo '<a href="/NHL-Stenden-Portofolio/portfolio-website/adminPortal/">Ga terug naar admin portal</a>';
+        }
+
     }
 
     function uploadFileLocal($fileSize, $acceptedFileTypes){
@@ -32,7 +40,7 @@
                 $uploadedFileType = finfo_file($fileInfo, $_FILES["uploadedFile"]["tmp_name"]);
 
                 if(in_array($uploadedFileType, $acceptedFileTypes)){
-                    if(!file_exists("upload/" . $_FILES["uploadedFile"]["name"])){
+                    if(!file_exists("../../files/" . $_FILES["uploadedFile"]["name"])){
                         if(move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], "../../files/" . $_FILES["uploadedFile"]["name"])){
                             return $_FILES["uploadedFile"]["name"];
                         }else{
