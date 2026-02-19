@@ -22,6 +22,16 @@
         <input type="text" name="title" id="title" placeholder="Bijv. Projectverslag">
         <label for="description">Omschrijving:</label>
         <textarea name="description" id="description" placeholder="Korte omschrijving van het bestand"></textarea>
+        <label for="module">Module:</label>
+        <input type="text" name="module" id="module" placeholder="Bijv. Web Development">
+        <label for="year">Jaar:</label>
+        <select name="year" id="year" class="form-select">
+            <option value="">Kies een jaar</option>
+            <option value="1">Jaar 1</option>
+            <option value="2">Jaar 2</option>
+            <option value="3">Jaar 3</option>
+            <option value="4">Jaar 4</option>
+        </select>
         <label for="file">Bestandsnaam:</label>
         <input type="file" name="uploadedFile" id="file">
 

@@ -26,6 +26,8 @@
         $stmt->bindColumn("title", $title);
         $stmt->bindColumn("description", $description);
         $stmt->bindColumn("path", $path);
+        $stmt->bindColumn("year", $year);
+        $stmt->bindColumn("module", $module);
 
         $stmt->execute();
 

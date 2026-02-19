@@ -77,7 +77,7 @@
                 <h2>Werkervaring</h2>
                 <div class="item">
                     <h3>Aareon</h3>
-                    <h4>alkdjfal</h4>
+                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, tempore sint. Possimus dignissimos tempora, enim fuga laborum ullam maxime nostrum facere, nesciunt reiciendis, quasi fugit voluptate tenetur laboriosam ab distinctio!</h4>
                 </div>
             </div>
             <div class="category">
