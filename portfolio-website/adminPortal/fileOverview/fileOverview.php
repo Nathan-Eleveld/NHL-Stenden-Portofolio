@@ -32,14 +32,35 @@
         $stmt->execute();
 
         while($result = $stmt->fetch()){
-            echo '
-                <a href="/NHL-Stenden-Portofolio/portfolio-website/files/'.$path.'" class="card-link">
-                    <div class="card">
-                        <h3>' . $title . '</h3>
-                        <p>' . $description . '</p>
-                    </div>
-                </a>
-            ';
+echo '
+<div class="card">
+    <!-- Klikbare content voor PDF -->
+    <a href="/NHL-Stenden-Portofolio/portfolio-website/files/' . $path . '" 
+       target="_blank" class="card-content-link">
+        <h3>' . $title . '</h3>
+        <p>' . $description . '</p>
+    </a>
+
+    <!-- Buttons onderin de card -->
+    <div class="card-buttons-grid">
+        <!-- Delete knop -->
+        <form method="post" action="delete.php">
+            <input type="hidden" name="id" value="' . $id . '">
+            <button type="submit" class="delete-button">🞩 Delete</button>
+        </form>
+
+        <!-- Download knop -->
+        <a href="/NHL-Stenden-Portofolio/portfolio-website/files/' . $path . '" 
+           class="download-button" download>⬇ Download</a>
+
+        <!-- Edit knop -->
+        <form method="get" action="edit.php">
+            <input type="hidden" name="id" value="' . $id . '">
+            <button type="submit" class="edit-button">✎ Edit</button>
+        </form>
+    </div>
+</div>
+';
         }
     }
 ?>
@@ -49,8 +70,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestandsoverzicht</title>
-    <link rel="stylesheet" href="">
+    <title class = "comp-title">Bestandsoverzicht</title>
 </head>
 <body>
     <div class="top">

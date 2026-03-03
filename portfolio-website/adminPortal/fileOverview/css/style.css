@@ -1,15 +1,18 @@
-body{
+/* Algemene body */
+body {
     margin: 0;
 }
 
-.top{
+/* Top bar */
+.top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
 }
 
-.add-button{
+/* Add button bovenaan */
+.add-button {
     display: inline-block;
     background: linear-gradient(135deg, #ff8a00, #ff6a00);
     color: white;
@@ -21,17 +24,18 @@ body{
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.add-button:hover{
+.add-button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
-.add-button:active{
+.add-button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.content{
+/* Grid container voor cards */
+.content {
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -39,39 +43,37 @@ body{
     text-align: center;
 }
 
-/* Link wrapper voor de card */
-a.card-link {
+/* Card */
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    border-top: 4px solid #ff8a00;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255,138,0,0.2);
+}
+
+/* Klikbaar gedeelte – PDF */
+.card-content-link {
     text-decoration: none;
     color: inherit;
     display: block;
+    margin-bottom: 1rem;
 }
 
-/* Card styling */
-.card {
-    background: #ffffff; /* gewoon wit */
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /* subtiele schaduw */
-    transition: transform 0.2s, box-shadow 0.2s;
-    margin-bottom: 1.5rem;
-    border-top: 4px solid #ff8a00; /* subtiel oranje accent bovenaan */
-}
-
-/* Hover effect */
-a.card-link:hover .card {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(255, 138, 0, 0.2); /* lichte oranje glow op hover */
-}
-
-/* Titel in de kaart */
 .card h3 {
-    margin-top: 0;
-    margin-bottom: 0.6rem;
+    margin: 0 0 0.6rem 0;
     font-size: 1.2rem;
-    color: #ff6a00; /* oranje titel */
+    color: #ff6a00;
 }
 
-/* Accent-lijn onder de titel */
 .card h3::after {
     content: "";
     display: block;
@@ -82,10 +84,74 @@ a.card-link:hover .card {
     border-radius: 3px;
 }
 
-/* Beschrijvingstekst */
 .card p {
     margin: 0;
     font-size: 0.95rem;
-    color: #555; /* neutrale kleur voor tekst */
+    color: #555;
     line-height: 1.4;
+}
+
+/* Buttons container – flex met space-between */
+.card-buttons-grid {
+    display: flex;
+    justify-content: space-between; /* Delete links – Download midden – Edit rechts */
+    align-items: center;
+    margin-top: 1rem;
+    gap: 0.5rem;
+    flex-wrap: wrap; /* voor mobiel */
+}
+
+/* Knoppen styling */
+.card-buttons-grid button,
+.card-buttons-grid a {
+    flex: 1; /* gelijkwaardige ruimte */
+    max-width: 120px;
+    padding: 0.5rem 0.9rem;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: white;
+}
+
+/* Kleuren per knop */
+.edit-button { background: linear-gradient(135deg, #ff9e4d, #ff8a00); }
+.delete-button { background: linear-gradient(135deg, #ff6666, #cc3333); }
+.download-button { background: linear-gradient(135deg, #4CAF50, #2E7D32); }
+
+/* Hover effecten */
+.edit-button:hover { background: linear-gradient(135deg, #ff8a00, #ff6a00); box-shadow: 0 3px 8px rgba(255,138,0,0.25); }
+.delete-button:hover { background: linear-gradient(135deg, #ff4d4d, #cc0000); box-shadow: 0 3px 8px rgba(204,0,0,0.25); }
+.download-button:hover { background: linear-gradient(135deg, #2E7D32, #1B5E20); box-shadow: 0 3px 8px rgba(46,125,50,0.3); transform: translateY(-1px); }
+
+/* Active klik effect */
+.edit-button:active,
+.delete-button:active,
+.download-button:active { transform: translateY(1px); box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+
+/* Responsive – mobiel */
+@media (max-width: 500px) {
+    .card-buttons-grid {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .card-buttons-grid button,
+    .card-buttons-grid a {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
