@@ -1,7 +1,6 @@
 <?php
+ob_start(); // start buffer
 require_once __DIR__ . '/auth/auth.php';
-
-// check of ingelogd
 checkAuth();
 
 // pagina's en CSS
