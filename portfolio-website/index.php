@@ -1,9 +1,8 @@
 <?php
-session_start();
 require_once __DIR__ . '/auth/auth.php';
 
-// Controleer of de gebruiker ingelogd is
-checkAuth(); // ← deze regel was eerder missing
+// check of ingelogd
+checkAuth();
 
 // pagina's en CSS
 $pages = [

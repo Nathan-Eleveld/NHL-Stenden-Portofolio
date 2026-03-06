@@ -1,19 +1,23 @@
 <?php
+    // start output buffering
+    ob_start();
+
     session_start();
 
     function checkAuth() {
-        if(isset($_SESSION["username"])) {
-            if($_SESSION["role"] === "Admin" || $_SESSION["role"] === "Professional skills docent"){
-                return true;
-            } else {
-                // gebruiker is ingelogd, maar heeft verkeerde rol
-                header("Location: index.php");
-                exit;
-            }
-        } else {
-            // gebruiker is niet ingelogd → stuur naar login
+        // gebruiker niet ingelogd
+        if(!isset($_SESSION["username"])) {
             header("Location: login/login.php");
             exit;
         }
+
+        // gebruiker ingelogd maar verkeerde rol (optioneel)
+        if(isset($_SESSION["role"]) && !in_array($_SESSION["role"], ["Admin", "Professional skills docent"])) {
+            header("Location: index.php");
+            exit;
+        }
+
+        // alles ok
+        return true;
     }
 ?>
