@@ -50,3 +50,28 @@ main{
     transform: translateY(0);       
     box-shadow: 0 3px 5px rgba(0,0,0,0.1);
 }
+
+.login-btn {
+    background-color: #FF6600;      /* Oranje kleur */
+    color: white;                   /* Witte tekst */
+    font-size: 16px;                
+    padding: 10px 20px;             
+    border: 2px solid white;        /* Dunne witte rand */
+    border-radius: 8px;             
+    cursor: pointer;                
+    transition: all 0.3s ease;      
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-decoration: none;          /* Verwijdert de standaard underline van <a> */
+    display: inline-block;          /* Zorgt dat padding goed werkt */
+}
+
+.login-btn:hover {
+    background-color: #ff8f66;      /* Iets lichtere oranje bij hover */
+    transform: translateY(-2px);    
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.login-btn:active {
+    transform: translateY(0);       
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}

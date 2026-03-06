@@ -3,6 +3,8 @@ ob_start(); // start buffer
 require_once __DIR__ . '/auth/auth.php';
 checkAuth();
 
+echo __DIR__ . '/auth/auth.php';
+
 // pagina's en CSS
 $pages = [
     'fileOverview' => 'fileOverview/fileOverview.php'
@@ -22,7 +24,7 @@ function showLogButtons(){
             </form>
         ';
     } else {
-        echo '<a href="login/login.php">Login</a>';
+        echo '<a href="login/login.php" class="login-btn">Login</a>';
     }
 }
 
