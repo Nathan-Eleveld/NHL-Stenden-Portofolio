@@ -1,7 +1,4 @@
 <?php
-    // start output buffering
-    ob_start();
-
     session_start();
 
     function checkAuth() {
