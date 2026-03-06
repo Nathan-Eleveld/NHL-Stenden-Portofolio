@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION["username"])){
-        if($_SESSION["role"] === "Admin"){
+        if($_SESSION["role"] === "Admin" || $_SESSION["role"] === "Professional skills docent"){
             return true;
         }else{
             header("location: ../index.php");

@@ -6,7 +6,7 @@
     }
 
     function prepareStatement(){
-        require_once("./../dbconnection/dbconnection.php");
+        require_once("./dbconnection/dbconnection.php");
         try{
             $stmt = $dbConnection->prepare(
             "
@@ -43,21 +43,10 @@
 
                     <!-- Buttons onderin de card -->
                     <div class="card-buttons-grid">
-                        <form method="post" action="fileDelete/deleteFile.php" 
-                          onsubmit="return confirm(\'Weet je zeker dat je dit bestand wilt verwijderen?\');">
-                            <input type="hidden" name="id" value="' . $id . '">
-                            <button type="submit" class="delete-button">🞩 Delete</button>
-                        </form>
 
                         <!-- Download knop -->
                         <a href="/NHL-Stenden-Portofolio/portfolio-website/files/' . $path . '" 
                         class="download-button" download>⬇ Download</a>
-
-                        <!-- Edit knop -->
-                        <form method="get" action="fileEdit/form.php">
-                            <input type="hidden" name="id" value="' . $id . '">
-                            <button type="submit" class="edit-button">✎ Edit</button>
-                        </form>
                     </div>
                 </div>
             ';
@@ -75,7 +64,6 @@
 <body>
     <div class="top">
         <h1>Bestandsoverzicht</h1>
-        <a href="./fileUpload/form.php" class="add-button">Add a file</a>
     </div>
     <div class="content">
         <?php

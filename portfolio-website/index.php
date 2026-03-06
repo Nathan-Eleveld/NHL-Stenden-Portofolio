@@ -1,27 +1,27 @@
 <?php
     session_start();
 
-    function showMyWork(){
-        if(isset($_SESSION["username"])){
-            echo '
-                <div class="my-work">
-                    <h3>MIJN WERK</h3>
-                    <button>Professional skills</button>
-                    <button>Programeer opdrachten</button>
-                </div>
-            ';
-        }
-    }
+    require_once __DIR__ . '/auth/auth.php';
+
+    $pages = [
+        'fileOverview' => 'fileOverview/fileOverview.php'
+    ];
+
+    $cssFiles = [
+        'fileOverview' => 'fileOverview/css/style.css'
+    ];
+
+    $page = $_GET['page'] ?? 'fileOverview';
 
     function showLogButtons(){
         if(isset($_SESSION["username"])){
             echo '
                 <form method="post">
-                    <button type="submit" name="logout">Logout</button>
+                    <button type="submit" name="logout" class="logout-btn">Logout</button>
                 </form>
             ';
         }else{
-            echo '<a href="login\login.php">Login</a>';
+            echo '<a href="login/login.php">Login</a>';
         }
     }
 
@@ -30,6 +30,14 @@
         session_destroy();
         header("location: ../index.php");
     }
+
+    function getMaincontent($pages, $page){
+        if(array_key_exists($page, $pages)){
+            include $pages[$page];
+        }else{
+            include 'fileOverview/fileOverview.php';
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,65 +45,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nathans Portfolio</title>
+    <title>Nathans Website</title>
     <link rel="stylesheet" href="style.css">
+    <?php
+        if (isset($cssFiles[$page])) {
+            echo '<link rel="stylesheet" href="' . htmlspecialchars($cssFiles[$page]) . '">';
+        }
+    ?>
+
 </head>
 <body>
     <aside>
-        <img class="profilepic" src="img\placeholder.png" alt="ProfielFoto">
-        <h2>NATHAN ELEVELD</h2>
-        <h3>STUDENT INFORMATICA</h3>
-        <h3>HBO</h3>
-        <div class="sidebarline"></div>
-        <h3>PERSOONLIJK PROFIEL</h3>
-        <p>Ik ben een creatieve probleemoplosser die zowel zelfstandig als in een team goed functioneert. Mijn passie ligt in het vinden van innovatieve oplossinge, en mijn betrouwbaarheid staat centraal in alles wat ik doe.</p>
-        <h4>VAKGERELATEERDE VAARDIGHEDEN</h4>
-        <ul>
-            <li>PHP</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>SQL</li>
-            <li>AZURE</li>
-        </ul>
+        <img class="profilepic" src="./img/NHLStendenlogo.png" alt="ProfielFoto">
 
         <?php
-            showMyWork();
+            echo "<h2>Welkom: " . $_SESSION["username"] . "</h2>";
+            echo "<h3>Rol: " . $_SESSION["role"] . "</h3>";
+            echo '<div class="sidebarline"></div>';
+            date_default_timezone_set("Europe/Amsterdam");
+            echo "<h4> Datum:" . date("d-m-Y") . "</h4>";
         ?>
-
-        <h3>CONTACTINFORMATIE</h3>
-        <p>Tel.: 06-50 53 51 13</p>
-        <p>Mail: nathaneleveld6@gmail.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/nathan-eleveld-009471239/" target="_blank" rel="noopener">Klik hier</a></p>
 
         <?php
             showLogButtons();
         ?>
     </aside>
     <main>
-        <div class="main-content">
-            <div class="category">
-                <h2>Werkervaring</h2>
-                <div class="item">
-                    <h3>Aareon</h3>
-                    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, tempore sint. Possimus dignissimos tempora, enim fuga laborum ullam maxime nostrum facere, nesciunt reiciendis, quasi fugit voluptate tenetur laboriosam ab distinctio!</h4>
-                </div>
-            </div>
-            <div class="category">
-                <h2>Opleidingen</h2>
-                <div class="item">
-                    <h3>NHL Stenden</h3>
-                    <h4>Informatica</h4>
-                </div>
-                <div class="item">
-                    <h3>DCTerra</h3>
-                    <h4>Softwaredeveloper</h4>
-                </div>
-            </div>
-            <div class="category">
-                <h2>Hobies en interesses</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem adipisci voluptatum reprehenderit maxime, saepe quasi asperiores non? Consequuntur illo amet at officia voluptas architecto quo dolor necessitatibus quis! Minus, temporibus!</p>
-            </div>
-        </div>
+        <?php
+            getMaincontent($pages, $page);
+        ?>
     </main>
 </body>
 </html>
