@@ -3,11 +3,7 @@ session_start();
 require_once __DIR__ . '/auth/auth.php';
 
 // Controleer of de gebruiker ingelogd is
-if (!isset($_SESSION["username"])) {
-    // gebruiker niet ingelogd → stuur naar login
-    header("Location: login/login.php");
-    exit;
-}
+checkAuth(); // ← deze regel was eerder missing
 
 // pagina's en CSS
 $pages = [

@@ -6,10 +6,12 @@
             if($_SESSION["role"] === "Admin" || $_SESSION["role"] === "Professional skills docent"){
                 return true;
             } else {
-                header("Location: ../index.php");
+                // gebruiker is ingelogd, maar heeft verkeerde rol
+                header("Location: index.php");
                 exit;
             }
         } else {
+            // gebruiker is niet ingelogd → stuur naar login
             header("Location: login/login.php");
             exit;
         }
