@@ -1,7 +1,17 @@
 <?php
     session_start();
 
-    require_once __DIR__ . '/auth/auth.php';
+    // require_once __DIR__ . '/auth/auth.php';
+
+    if(!isset($_SESSION["username"])) {
+        header("Location: /login/login.php");
+        exit;
+    }
+
+    if($_SESSION["role"] !== "Admin" && $_SESSION["role"] !== "Professional skills docent"){
+        header("Location: ../index.php");
+        exit;
+    }
 
     $pages = [
         'fileOverview' => 'fileOverview/fileOverview.php'
