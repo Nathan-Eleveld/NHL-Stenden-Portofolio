@@ -1,9 +1,5 @@
 <?php
-    if(file_exists(__DIR__ . '/../auth.php')) {
-        require_once __DIR__ . '/../auth.php';
-    } elseif(file_exists(__DIR__ . '/auth.php')) {
-        require_once __DIR__ . '/auth.php';
-    }
+    require_once __DIR__ . '/auth/auth.php';
 
     function prepareStatement(){
         require_once("./dbconnection/dbconnection.php");

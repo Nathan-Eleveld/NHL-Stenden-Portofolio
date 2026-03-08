@@ -1,11 +1,11 @@
 <?php
-    if(isset($_SESSION["username"])){
-        if($_SESSION["role"] === "Admin" || $_SESSION["role"] === "Professional skills docent"){
-            return true;
-        }else{
-            header("location: ../index.php");
-        }
-    }else{
-        header("location: /NHL-Stenden-Portofolio/portfolio-website/login/login.php");
+    if(!isset($_SESSION["username"])) {
+        header("Location: /login/login.php");
+        exit;
+    }
+
+    if($_SESSION["role"] !== "Admin" && $_SESSION["role"] !== "Professional skills docent"){
+        header("Location: ../index.php");
+        exit;
     }
 ?>
