@@ -1,10 +1,15 @@
 <?php
-    $dbConnection = null;
+    $config = require __DIR__ . '../../config/database.php';
 
-    try{
-        $dbConnection = new PDO("mysql:host=mysql;dbname=portfoliowebsite;charset=utf8", "root", "qwerty");
-        return $dbConnection;
-    }catch(Exception $ex){
-        return $ex;
-    }
+    $dsn = "mysql:host={$config['host']};dbname={$config['dbname']};charset=utf8mb4";
+
+    $dbConnection = new PDO(
+        $dsn,
+        $config['user'],
+        $config['pass'],
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]
+    );
 ?>
